@@ -5,10 +5,15 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import NavTabs from './NavTabs'
+
 const styles = {
   root: {
     flexGrow: 1,
   },
+  grow: {
+    flexGrow: 1
+  }
 };
 
 function SimpleAppBar(props) {
@@ -16,11 +21,12 @@ function SimpleAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="primary">
+      <AppBar position="fixed" color="primary">
         <Toolbar>
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h6" color="inherit" className={classes.grow}>
             Photos
           </Typography>
+          <NavTabs/>
         </Toolbar>
       </AppBar>
     </div>
