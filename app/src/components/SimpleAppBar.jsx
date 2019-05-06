@@ -24,7 +24,7 @@ function SimpleAppBar(props) {
       <AppBar position="fixed" color="primary">
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Photos
+            Torian Harris
           </Typography>
           <NavTabs/>
         </Toolbar>

@@ -4,16 +4,22 @@ import BackDrop from './components/Backdrop'
 import AppBar from './components/SimpleAppBar'
 import { createMuiTheme } from '@material-ui/core/styles';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import purple from '@material-ui/core/colors/purple'
-
+import orange from '@material-ui/core/colors/orange'
 
 const theme = createMuiTheme({
   palette: {
-    primary: purple,
-    secondary: {
-      main: '#f44336',
+    primary: {
+      main: "#34515e"
     },
+    secondary: orange
   },
+  overrides: {
+    MuiButton: {
+      containedSecondary: {
+        color: "white"
+      }
+    }
+  }
 });
 
 class App extends Component {
@@ -22,8 +28,9 @@ class App extends Component {
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <AppBar />
-          <BackDrop id={"dog"}/>
-          <BackDrop id={"cat"}/>
+          <BackDrop id={"about"}/>
+          <BackDrop id={"projects"}/>
+          <BackDrop id={"contact"}/>
         </MuiThemeProvider>
       </div>
     );
