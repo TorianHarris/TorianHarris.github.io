@@ -12,6 +12,7 @@ const styles = {
     },
     image: {
         width: "100%",
+        minHeight: 800,
         //height: "calc(100% - 64px)",
         marginBottom: -4,
         position: "relative",
@@ -34,8 +35,6 @@ function Backdrop(props) {
                 <Button variant="contained" color="secondary">hello World</Button>
             </div>
         </Element>
-
-
     )
 }
 
