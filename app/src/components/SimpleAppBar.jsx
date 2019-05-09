@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,21 +16,43 @@ const styles = {
   }
 };
 
-function SimpleAppBar(props) {
-  const { classes } = props;
+class SimpleAppBar extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="fixed" color="primary">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            Torian Harris
+    this.state = {
+      topValues: []
+    }
+  }
+  
+  componentDidMount() {
+    this.getClientRects();
+  }
+
+  getClientRects = () => {
+    let rects = document.getElementsByClassName("getClientRect");
+    const newArr = [];
+    for (let i = 0; i < rects.length; i++) {
+      newArr.push(rects[i].offsetTop);
+    }
+    this.setState({ topValues: newArr });
+  }
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root + " navBar"}>
+        <AppBar position="fixed" color="primary">
+          <Toolbar>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              Torian Harris
           </Typography>
-          <NavTabs/>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+            <NavTabs topValues={this.state.topValues}/>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 SimpleAppBar.propTypes = {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ScrollTest from './components/ScrollTest'
 import BackDrop from './components/Backdrop'
 import AppBar from './components/SimpleAppBar'
@@ -22,19 +22,17 @@ const theme = createMuiTheme({
   }
 });
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <MuiThemeProvider theme={theme}>
-          <AppBar />
-          <BackDrop id={"about"}/>
-          <BackDrop id={"projects"}/>
-          <BackDrop id={"contact"}/>
-        </MuiThemeProvider>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <MuiThemeProvider theme={theme}>
+        <AppBar />
+        <BackDrop id={"about"} />
+        <BackDrop id={"projects"} />
+        <BackDrop id={"contact"} />
+      </MuiThemeProvider>
+    </div>
+  );
 }
 
 export default App;
