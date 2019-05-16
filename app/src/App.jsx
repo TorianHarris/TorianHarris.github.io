@@ -6,6 +6,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import orange from '@material-ui/core/colors/orange'
 
+import Contact from "./Content/Contact"
+const myContact = <Contact />
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -29,7 +32,7 @@ function App() {
         <AppBar />
         <BackDrop id={"about"} />
         <BackDrop id={"projects"} />
-        <BackDrop id={"contact"} />
+        <BackDrop id={"contact"} content={myContact}/>
       </MuiThemeProvider>
     </div>
   );

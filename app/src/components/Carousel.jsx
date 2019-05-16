@@ -86,7 +86,7 @@ class SwipeableTextMobileStepper extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
-
+    
     return (
       <div className={classes.root}>
 

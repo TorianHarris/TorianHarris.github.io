@@ -40,9 +40,10 @@ function Backdrop(props) {
     <Element name={id} className={classes.container + " getClientRect"}>
       <img src={Mountains} alt="" className={classes.image} />
       <div className={classes.content}>
+      {props.content}
+      {/* <Slider />
       <Slider />
-      <Slider />
-        {/* <Button variant="contained" color="secondary">hello World</Button> */}
+        <Button variant="contained" color="secondary">hello World</Button> */}
       </div>
     </Element>
   )
