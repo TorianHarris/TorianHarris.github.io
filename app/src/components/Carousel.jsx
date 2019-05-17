@@ -10,6 +10,10 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCode } from '@fortawesome/free-solid-svg-icons'
+import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
+
 import BetwixtImg from '../Assets/Screenshots/Betwixt.png'
 import KlimaImg from '../Assets/Screenshots/Klima.png'
 
@@ -17,18 +21,24 @@ const tutorialSteps = [
   {
     label: 'Betwixt',
     imgPath: BetwixtImg,
-    desc: "",
+    desc: "First guy hjkjjdkljfjsdfj kladjfjajkfjlkf jsakljjmbnbmbmbkubiub h jhjkhhyjhkh jk",
     sitePath: "",
-    githubPath: ""
+    githubPath: "",
   },
   {
     label: 'Klima',
     imgPath: KlimaImg,
+    desc: "Diffenent guy",
+    sitePath: "",
+    githubPath: "",
   },
   {
     label: 'Math Bomb',
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+    desc: "bar dude",
+    sitePath: "",
+    githubPath: "",
   },
 ];
 
@@ -59,6 +69,15 @@ const styles = theme => ({
   },
   mobileStepper: {
     backgroundColor: "transparent"
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "space-around",
+    width: "100%",
+    
+  },
+  icon: {
+    paddingLeft: 10
   }
 });
 
@@ -71,12 +90,12 @@ class SwipeableTextMobileStepper extends React.Component {
 
   handleNext = () => {
     let newStep = this.state.activeStep === this.maxSteps - 1 ? 0 : this.state.activeStep + 1
-    this.setState({activeStep: newStep})
+    this.setState({ activeStep: newStep })
   };
 
   handleBack = () => {
     let newStep = this.state.activeStep === 0 ? this.maxSteps - 1 : this.state.activeStep - 1
-    this.setState({activeStep: newStep})
+    this.setState({ activeStep: newStep })
   };
 
   handleStepChange = activeStep => {
@@ -86,9 +105,9 @@ class SwipeableTextMobileStepper extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
-    
+
     return (
-    //  <div>Slider</div>
+      //  <div>Slider</div>
       <div className={classes.root}>
 
         <div className={classes.header}>
@@ -119,13 +138,26 @@ class SwipeableTextMobileStepper extends React.Component {
             </Button>
           }
           backButton={
-            <Button size="small" onClick={this.handleBack}  color="secondary">
+            <Button size="small" onClick={this.handleBack} color="secondary">
               {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
             </Button>
           }
         />
+        <div style={{marginTop: 10, marginBottom: 30}} className={classes.header}>
+          <Typography variant="subtitle1" className={classes.label}>{tutorialSteps[activeStep].desc}</Typography>
+        </div>
+        <div className={classes.buttonContainer}>
+          <Button variant="contained" color="secondary" size="large">
+            Site
+            <FontAwesomeIcon className={classes.icon} icon={faWindowMaximize} />
+          </Button>
+          <Button variant="contained" color="secondary" size="large">
+            Code
+            <FontAwesomeIcon className={classes.icon} icon={faCode} />
+          </Button>
+        </div>
       </div>
-      );
+    );
   }
 }
 

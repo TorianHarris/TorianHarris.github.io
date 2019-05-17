@@ -21,7 +21,7 @@ const styles = {
   },
   content: {
     position: "absolute",
-    top: "50%",
+    top: "calc(50% - 32px)",
     left: "50%",
     transform: "translate(-50% , -50%)",
     // width: "60%",
