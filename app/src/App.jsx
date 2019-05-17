@@ -29,6 +29,14 @@ const theme = createMuiTheme({
         color: "#fff"
       },
     },
+    MuiMobileStepper: {
+      dot: {
+        backgroundColor: "#dcdcdc"
+      },
+      dotActive: {
+        backgroundColor: "#ff9800"
+      }
+    },
   }
 });
 
