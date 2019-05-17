@@ -2,7 +2,7 @@ import React from 'react'
 import { Element } from 'react-scroll'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Mountains from '../Assets/Mountains.jpg'
+import Mountains from '../Assets/Backgrounds/Mountains.jpg'
 
 import Slider from "./Carousel"
 
@@ -29,7 +29,7 @@ const styles = {
     //backgroundColor: "red",
     display: "flex",
     alignItems: "center",
-    width: "80%",
+    width: "100%",
     justifyContent: "center"
   },
 };
@@ -40,10 +40,7 @@ function Backdrop(props) {
     <Element name={id} className={classes.container + " getClientRect"}>
       <img src={Mountains} alt="" className={classes.image} />
       <div className={classes.content}>
-      {props.content}
-      {/* <Slider />
-      <Slider />
-        <Button variant="contained" color="secondary">hello World</Button> */}
+        {props.content}
       </div>
     </Element>
   )

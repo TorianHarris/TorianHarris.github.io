@@ -10,50 +10,50 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
+import BetwixtImg from '../Assets/Screenshots/Betwixt.png'
+import KlimaImg from '../Assets/Screenshots/Klima.png'
+
 const tutorialSteps = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    label: 'Betwixt',
+    imgPath: BetwixtImg,
+    desc: "",
+    sitePath: "",
+    githubPath: ""
   },
   {
-    label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+    label: 'Klima',
+    imgPath: KlimaImg,
   },
   {
-    label: 'Bali, Indonesia',
+    label: 'Math Bomb',
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-  },
-  {
-    label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
   },
 ];
 
 const styles = theme => ({
   root: {
-    width: "100%",
+    maxWidth: 500,
     flexGrow: 1,
   },
   header: {
     display: 'flex',
     alignItems: 'center',
     height: 50,
-    paddingLeft: theme.spacing.unit * 4,
-    backgroundColor: theme.palette.background.default,
+    //backgroundColor: theme.palette.background.default,
+  },
+  label: {
+    flexGrow: 1,
+    textAlign: "center",
+    fontFamily: "Montserrat",
+    fontWeight: "lighter",
+    letterSpacing: 1
   },
   img: {
     height: 255,
     display: 'block',
-    //maxWidth: 400,
+    maxWidth: 500,
     overflow: 'hidden',
     width: '100%',
   },
@@ -88,11 +88,12 @@ class SwipeableTextMobileStepper extends React.Component {
     const { activeStep } = this.state;
     
     return (
+    //  <div>Slider</div>
       <div className={classes.root}>
 
-        <Paper square elevation={0} className={classes.header}>
-          <Typography>{tutorialSteps[activeStep].label}</Typography>
-        </Paper>
+        <div className={classes.header}>
+          <Typography variant="h5" className={classes.label}>{tutorialSteps[activeStep].label}</Typography>
+        </div>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeStep}
@@ -124,7 +125,7 @@ class SwipeableTextMobileStepper extends React.Component {
           }
         />
       </div>
-    );
+      );
   }
 }
 
