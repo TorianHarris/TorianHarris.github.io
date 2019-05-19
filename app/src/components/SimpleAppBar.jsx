@@ -4,15 +4,27 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
 import NavTabs from './NavTabs'
+import Logo from '../Assets/Branding/logo-light-no-title.png'
 
 const styles = {
   root: {
     flexGrow: 1,
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
+    display: "flex",
+    alignItems: "center"
+  },
+  logo: {
+    maxHeight: 40,
+    paddingRight: 10
+  },
+  title: {
+    opacity: 0.8,
+    fontFamily: "Montserrat",
+    fontWeight: "lighter",
+    letterSpacing: 3
   }
 };
 
@@ -24,7 +36,7 @@ class SimpleAppBar extends Component {
       topValues: []
     }
   }
-  
+
   componentDidMount() {
     this.getClientRects();
   }
@@ -44,10 +56,13 @@ class SimpleAppBar extends Component {
       <div className={classes.root + " navBar"}>
         <AppBar position="fixed" color="primary">
           <Toolbar>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              Torian Harris
-          </Typography>
-            <NavTabs topValues={this.state.topValues}/>
+            <div className={classes.grow}>
+              <img src={Logo} className={classes.logo}></img>
+              <Typography variant="h5" className={classes.title}>
+                TORIAN HARRIS
+              </Typography>
+            </div>
+            <NavTabs topValues={this.state.topValues} />
           </Toolbar>
         </AppBar>
       </div>
