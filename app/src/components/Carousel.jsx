@@ -15,6 +15,7 @@ import { faCode, faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 
 import BetwixtImg from "../Assets/Screenshots/Betwixt.png";
 import KlimaImg from "../Assets/Screenshots/Klima.png";
+import MathBomb from "../Assets/Screenshots/MathBomb.png";
 
 const projects = [
   {
@@ -35,9 +36,8 @@ const projects = [
   },
   {
     label: "Math Bomb",
-    imgPath:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80",
-    desc: "ffakajkf jajfkjflkjak fjkjklfjajl",
+    imgPath: MathBomb,
+    desc: "A calculator game where players add, subtract, multiply, or divide to reach the value above each bomb's head before they explode.",
     tech: "Solo Project. Used React, Javascript, CSS.",
     sitePath: "https://torianharris.github.io/MathBomb/",
     githubPath: "https://github.com/TorianHarris/MathBomb"
