@@ -4,7 +4,7 @@ import BackDrop from './Components/Backdrop'
 import AppBar from './Components/SimpleAppBar'
 import { createMuiTheme } from '@material-ui/core/styles';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import orange from '@material-ui/core/colors/orange'
+//import orange from '@material-ui/core/colors/orange'
 
 import Projects from './Content/Projects'
 import Contact from './Content/Contact'
@@ -12,31 +12,39 @@ import Contact from './Content/Contact'
 const myContact = <Contact />
 const myProjects = <Projects />
 
+const Color = {
+  darkBlue: "#34515e",
+  orange: "#ff9800",
+  white: "#fff"
+}
+
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#34515e"
+      main: Color.darkBlue
     },
-    secondary: orange,
+    secondary: {
+      main: Color.orange,
+    },
     text: {
-      primary: "#fff",
+      primary: Color.white,
     },
-    divider: "#ff9800"
+    divider: Color.orange
   },
   overrides: {
     MuiButton: {
       containedSecondary: {
-        color: "#fff"
+        color: Color.white
       },
     },
     MuiMobileStepper: {
       dot: {
-        backgroundColor: "#dcdcdc"
+        backgroundColor: Color.white,
       },
       dotActive: {
-        backgroundColor: "#ff9800"
+        backgroundColor: Color.orange
       }
-    },
+    }
   }
 });
 

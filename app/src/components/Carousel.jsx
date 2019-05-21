@@ -1,59 +1,61 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import MobileStepper from '@material-ui/core/MobileStepper';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
-import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import MobileStepper from "@material-ui/core/MobileStepper";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import SwipeableViews from "react-swipeable-views";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
-import { faWindowMaximize } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode, faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 
-import BetwixtImg from '../Assets/Screenshots/Betwixt.png'
-import KlimaImg from '../Assets/Screenshots/Klima.png'
+import BetwixtImg from "../Assets/Screenshots/Betwixt.png";
+import KlimaImg from "../Assets/Screenshots/Klima.png";
 
-const tutorialSteps = [
+const projects = [
   {
-    label: 'Betwixt',
+    label: "Betwixt",
     imgPath: BetwixtImg,
-    desc: "First guy hjkjjdkljfjsdfj kladjfjajkfjlkf jsakljjmbnbmbmbkubiub h jhjkhhyjhkh jk",
-    sitePath: "",
-    githubPath: "",
+    desc: "Finds the midpoint between two locations and renders places of interest around the midpoint onto a Google Map.",
+    tech: "Team Project. Used React, Material UI, Google Maps API.",
+    sitePath: "https://betwixt-gt.herokuapp.com",
+    githubPath: "https://github.com/ukgt/betwixt"
   },
   {
-    label: 'Klima',
+    label: "Klima",
     imgPath: KlimaImg,
-    desc: "Diffenent guy",
-    sitePath: "",
-    githubPath: "",
+    desc: "Uses the National Climatic Data Center API find the impacts of severe weather and climate changes for any given area.",
+    tech: "Team Project. Used Vue.js, Javascript, HTML, CSS.",
+    sitePath: "https://project-klima.herokuapp.com",
+    githubPath: "https://github.com/TorianHarris/Klima"
   },
   {
-    label: 'Math Bomb',
+    label: "Math Bomb",
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-    desc: "bar dude",
-    sitePath: "",
-    githubPath: "",
-  },
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80",
+    desc: "ffakajkf jajfkjflkjak fjkjklfjajl",
+    tech: "Solo Project. Used React, Javascript, CSS.",
+    sitePath: "https://torianharris.github.io/MathBomb/",
+    githubPath: "https://github.com/TorianHarris/MathBomb"
+  }
 ];
 
 const styles = theme => ({
   root: {
-    maxWidth: 500,
-    flexGrow: 1,
+    maxWidth: 600,
+    flexGrow: 1
   },
   header: {
-    display: 'flex',
-    alignItems: 'center',
-    height: 50,
+    display: "flex",
+    alignItems: "center",
+    height: 75
     //backgroundColor: theme.palette.background.default,
   },
-  label: {
+  text: {
     flexGrow: 1,
     textAlign: "center",
     fontFamily: "Montserrat",
@@ -62,31 +64,30 @@ const styles = theme => ({
   },
   img: {
     height: 255,
-    display: 'block',
-    maxWidth: 500,
-    overflow: 'hidden',
-    width: '100%',
+    display: "block",
+    maxWidth: 600,
+    overflow: "hidden",
+    width: "100%"
   },
   mobileStepper: {
     backgroundColor: "transparent"
   },
-  buttonContainer: {
-    display: "flex",
-    justifyContent: "space-around",
-    width: "100%",
-    
-  },
   icon: {
     paddingLeft: 10
+  },
+  buttonContainer: {
+    flexGrow: 1,
+    display: "flex",
+    justifyContent: "space-around"
   }
 });
 
 class SwipeableTextMobileStepper extends React.Component {
   state = {
-    activeStep: 0,
+    activeStep: 0
   };
 
-  maxSteps = tutorialSteps.length;
+  maxSteps = projects.length;
 
   handleNext = () => {
     let newStep = this.state.activeStep === this.maxSteps - 1 ? 0 : this.state.activeStep + 1
@@ -109,20 +110,25 @@ class SwipeableTextMobileStepper extends React.Component {
     return (
       //  <div>Slider</div>
       <div className={classes.root}>
-
         <div className={classes.header}>
-          <Typography variant="h5" className={classes.label}>{tutorialSteps[activeStep].label}</Typography>
+          <Typography variant="h5" className={classes.text}>
+            {projects[activeStep].label}
+          </Typography>
         </div>
         <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={activeStep}
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
         >
-          {tutorialSteps.map((step, index) => (
+          {projects.map((step, index) => (
             <div key={step.label}>
               {Math.abs(activeStep - index) <= 2 ? (
-                <img className={classes.img} src={step.imgPath} alt={step.label} />
+                <img
+                  className={classes.img}
+                  src={step.imgPath}
+                  alt={step.label}
+                />
               ) : null}
             </div>
           ))}
@@ -134,26 +140,41 @@ class SwipeableTextMobileStepper extends React.Component {
           className={classes.mobileStepper}
           nextButton={
             <Button size="small" onClick={this.handleNext} color="secondary">
-              {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
             </Button>
           }
           backButton={
             <Button size="small" onClick={this.handleBack} color="secondary">
-              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
             </Button>
           }
         />
-        <div style={{marginTop: 10, marginBottom: 30}} className={classes.header}>
-          <Typography variant="subtitle1" className={classes.label}>{tutorialSteps[activeStep].desc}</Typography>
+
+        <div style={{paddingTop: 15, paddingBottom: 20}}>
+          <Typography variant="subtitle1" gutterBottom className={classes.text}>
+            {projects[activeStep].desc}
+          </Typography>
+          <Typography variant="subtitle1" className={classes.text} style={{fontStyle: "italic"}}>
+            {projects[activeStep].tech}
+          </Typography>
         </div>
+
         <div className={classes.buttonContainer}>
-          <Button variant="contained" color="secondary" size="large">
+          <Button variant="contained" color="secondary" size="large" target="_blank" href={projects[activeStep].sitePath}>
             Site
-            <FontAwesomeIcon className={classes.icon} icon={faWindowMaximize} />
+            <FontAwesomeIcon icon={faWindowMaximize} className={classes.icon} />
           </Button>
-          <Button variant="contained" color="secondary" size="large">
+          <Button variant="contained" color="secondary" size="large" target="_blank" href={projects[activeStep].githubPath}>
             Code
-            <FontAwesomeIcon className={classes.icon} icon={faCode} />
+            <FontAwesomeIcon icon={faCode} className={classes.icon} />
           </Button>
         </div>
       </div>
@@ -163,7 +184,9 @@ class SwipeableTextMobileStepper extends React.Component {
 
 SwipeableTextMobileStepper.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(SwipeableTextMobileStepper);
+export default withStyles(styles, { withTheme: true })(
+  SwipeableTextMobileStepper
+);
