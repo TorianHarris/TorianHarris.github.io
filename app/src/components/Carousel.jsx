@@ -16,12 +16,14 @@ import { faCode, faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 import BetwixtImg from "../Assets/Screenshots/Betwixt.png";
 import KlimaImg from "../Assets/Screenshots/Klima.png";
 import MathBomb from "../Assets/Screenshots/MathBomb.png";
+import ColorMatch from "../Assets/Screenshots/ColorMatch.png";
 
 const projects = [
   {
     label: "Betwixt",
     imgPath: BetwixtImg,
-    desc: "Finds the midpoint between two locations and renders places of interest around the midpoint onto a Google Map.",
+    desc:
+      "Finds the midpoint between two locations and renders places of interest around the midpoint onto a Google Map.",
     tech: "Team Project. Used React, Material UI, Google Maps API.",
     sitePath: "https://betwixt-gt.herokuapp.com",
     githubPath: "https://github.com/ukgt/betwixt"
@@ -29,7 +31,8 @@ const projects = [
   {
     label: "Klima",
     imgPath: KlimaImg,
-    desc: "Uses the National Climatic Data Center API find the impacts of severe weather and climate changes for any given area.",
+    desc:
+      "Uses the National Climatic Data Center API find the impacts of severe weather and climate changes for any given area.",
     tech: "Team Project. Used Vue.js, Javascript, HTML, CSS.",
     sitePath: "https://project-klima.herokuapp.com",
     githubPath: "https://github.com/TorianHarris/Klima"
@@ -37,10 +40,20 @@ const projects = [
   {
     label: "Math Bomb",
     imgPath: MathBomb,
-    desc: "A calculator game where players add, subtract, multiply, or divide to reach the value above each bomb's head before they explode.",
+    desc:
+      "A calculator game where players add, subtract, multiply, or divide to reach the value above each bomb's head before they explode.",
     tech: "Solo Project. Used React, Javascript, CSS.",
     sitePath: "https://torianharris.github.io/MathBomb/",
     githubPath: "https://github.com/TorianHarris/MathBomb"
+  },
+  {
+    label: "Color Match",
+    imgPath: ColorMatch,
+    desc:
+      "An iOS game that challenges players to tap the color that matches the word while being pressured by a rapidily decreasing timer.",
+    tech: "Solo Project. Used Unity, C#.",
+    sitePath: "https://itunes.apple.com/us/app/color-match/id1169090939?mt=8",
+    githubPath: ""
   }
 ];
 
@@ -90,13 +103,19 @@ class SwipeableTextMobileStepper extends React.Component {
   maxSteps = projects.length;
 
   handleNext = () => {
-    let newStep = this.state.activeStep === this.maxSteps - 1 ? 0 : this.state.activeStep + 1
-    this.setState({ activeStep: newStep })
+    let newStep =
+      this.state.activeStep === this.maxSteps - 1
+        ? 0
+        : this.state.activeStep + 1;
+    this.setState({ activeStep: newStep });
   };
 
   handleBack = () => {
-    let newStep = this.state.activeStep === 0 ? this.maxSteps - 1 : this.state.activeStep - 1
-    this.setState({ activeStep: newStep })
+    let newStep =
+      this.state.activeStep === 0
+        ? this.maxSteps - 1
+        : this.state.activeStep - 1;
+    this.setState({ activeStep: newStep });
   };
 
   handleStepChange = activeStep => {
@@ -108,31 +127,30 @@ class SwipeableTextMobileStepper extends React.Component {
     const { activeStep } = this.state;
 
     return (
-      //  <div>Slider</div>
       <div className={classes.root}>
         <div className={classes.header}>
           <Typography variant="h5" className={classes.text}>
             {projects[activeStep].label}
           </Typography>
         </div>
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={activeStep}
-          onChangeIndex={this.handleStepChange}
-          enableMouseEvents
-        >
-          {projects.map((step, index) => (
-            <div key={step.label}>
-              {Math.abs(activeStep - index) <= 2 ? (
-                <img
-                  className={classes.img}
-                  src={step.imgPath}
-                  alt={step.label}
-                />
-              ) : null}
-            </div>
-          ))}
-        </SwipeableViews>
+          <SwipeableViews
+            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+            index={activeStep}
+            onChangeIndex={this.handleStepChange}
+            enableMouseEvents
+          >
+            {projects.map((step, index) => (
+              <div key={step.label}>
+                {Math.abs(activeStep - index) <= 2 ? (
+                  <img
+                    className={classes.img}
+                    src={step.imgPath}
+                    alt={step.label}
+                  />
+                ) : null}
+              </div>
+            ))}
+          </SwipeableViews>
         <MobileStepper
           steps={this.maxSteps}
           position="static"
@@ -158,24 +176,47 @@ class SwipeableTextMobileStepper extends React.Component {
           }
         />
 
-        <div style={{paddingTop: 15, paddingBottom: 20}}>
+        <div style={{ paddingTop: 15, paddingBottom: 20 }}>
           <Typography variant="subtitle1" gutterBottom className={classes.text}>
             {projects[activeStep].desc}
           </Typography>
-          <Typography variant="subtitle1" className={classes.text} style={{fontStyle: "italic"}}>
+          <Typography
+            variant="subtitle1"
+            className={classes.text}
+            style={{ fontStyle: "italic" }}
+          >
             {projects[activeStep].tech}
           </Typography>
         </div>
 
         <div className={classes.buttonContainer}>
-          <Button variant="contained" color="secondary" size="large" target="_blank" href={projects[activeStep].sitePath}>
-            Site
-            <FontAwesomeIcon icon={faWindowMaximize} className={classes.icon} />
-          </Button>
-          <Button variant="contained" color="secondary" size="large" target="_blank" href={projects[activeStep].githubPath}>
-            Code
-            <FontAwesomeIcon icon={faCode} className={classes.icon} />
-          </Button>
+          {projects[activeStep].sitePath !== "" ? (
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              target="_blank"
+              href={projects[activeStep].sitePath}
+            >
+              Site
+              <FontAwesomeIcon
+                icon={faWindowMaximize}
+                className={classes.icon}
+              />
+            </Button>
+          ) : null}
+          {projects[activeStep].githubPath !== "" ? (
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              target="_blank"
+              href={projects[activeStep].githubPath}
+            >
+              Code
+              <FontAwesomeIcon icon={faCode} className={classes.icon} />
+            </Button>
+          ) : null}
         </div>
       </div>
     );
