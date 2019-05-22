@@ -8,9 +8,11 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import Projects from './Content/Projects'
 import Contact from './Content/Contact'
+import About from './Content/About'
 
 const myContact = <Contact />
 const myProjects = <Projects />
+const myAbout = < About />
 
 const Color = {
   darkBlue: "#34515e",
@@ -50,10 +52,11 @@ const theme = createMuiTheme({
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <MuiThemeProvider theme={theme}>
         <AppBar />
-        <BackDrop id={"about"} />
+        {/* <div style={{backgroundColor: "red", height: 64}}/> */}
+        <BackDrop id={"about"} content={myAbout}/>
         <BackDrop id={"projects"} content={myProjects}/>
         <BackDrop id={"contact"} content={myContact}/>
       </MuiThemeProvider>

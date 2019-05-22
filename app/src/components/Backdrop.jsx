@@ -6,13 +6,20 @@ import Mountains from '../Assets/Backgrounds/Mountains.jpg'
 
 import Slider from "./Carousel"
 
+const detectBrowser = () => {
+  if(navigator.userAgent.indexOf("Firefox") != -1)
+    return "-moz-available";
+  else 
+    return "-webkit-fill-available";
+}
+
 const styles = {
   container: {
     position: "relative",
     overflow: 'hidden',
   },
   image: {
-    height: "-webkit-fill-available",
+    height: detectBrowser(),//"-webkit-fill-available",
     minWidth: "100%",
     //height: "calc(100% - 64px)",
     marginBottom: -4,
