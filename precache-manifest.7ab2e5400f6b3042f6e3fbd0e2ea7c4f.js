@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3143cc7a9bf97d6e585c88687cc9f046",
+    "revision": "579b5c9cc6b34e5d97dae3e2722e606b",
     "url": "/index.html"
   },
   {
-    "revision": "0dd8eb7172cfb9ef031f",
+    "revision": "18bfa2c39932cca43aa7",
     "url": "/static/css/main.207d5c6a.chunk.css"
   },
   {
-    "revision": "ef6953b92204ea71da1d",
-    "url": "/static/js/2.8e7ac60c.chunk.js"
+    "revision": "6e394c9980368706eb2b",
+    "url": "/static/js/2.de8cc6d1.chunk.js"
   },
   {
-    "revision": "0dd8eb7172cfb9ef031f",
-    "url": "/static/js/main.c8be50a0.chunk.js"
+    "revision": "18bfa2c39932cca43aa7",
+    "url": "/static/js/main.50e5714a.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -22,6 +22,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7e4ff616fb25af77337115ee81bf671d",
     "url": "/static/media/Betwixt.7e4ff616.png"
+  },
+  {
+    "revision": "8055cf323cfa561ecf24af7cf844b7a0",
+    "url": "/static/media/CirclePortrait.8055cf32.png"
   },
   {
     "revision": "58cd0a261aaf6a714aa93d8038953c45",
@@ -40,8 +44,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Mountains.354bc982.jpg"
   },
   {
+    "revision": "485e43f19078dad11661453a2c307375",
+    "url": "/static/media/NightSky.485e43f1.jpg"
+  },
+  {
+    "revision": "144e5f629314d392160e32b08b7acbb5",
+    "url": "/static/media/Portrait.144e5f62.jpg"
+  },
+  {
     "revision": "dc0220d59a8281e74c94cf1f6100f671",
     "url": "/static/media/Torian_Harris_Resume.dc0220d5.docx"
+  },
+  {
+    "revision": "5172e83e8655d1be623b8b29fa084bd4",
+    "url": "/static/media/Trail.5172e83e.jpg"
   },
   {
     "revision": "eb09924f9ba3f8acc658b2ee4bda9a5d",

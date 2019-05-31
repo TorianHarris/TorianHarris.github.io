@@ -1,22 +1,26 @@
 {
   "files": {
     "main.css": "/static/css/main.207d5c6a.chunk.css",
-    "main.js": "/static/js/main.c8be50a0.chunk.js",
-    "main.js.map": "/static/js/main.c8be50a0.chunk.js.map",
+    "main.js": "/static/js/main.50e5714a.chunk.js",
+    "main.js.map": "/static/js/main.50e5714a.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.8e7ac60c.chunk.js": "/static/js/2.8e7ac60c.chunk.js",
-    "static/js/2.8e7ac60c.chunk.js.map": "/static/js/2.8e7ac60c.chunk.js.map",
+    "static/js/2.de8cc6d1.chunk.js": "/static/js/2.de8cc6d1.chunk.js",
+    "static/js/2.de8cc6d1.chunk.js.map": "/static/js/2.de8cc6d1.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.079a0c06dc065d704c561d3f5cff8254.js": "/precache-manifest.079a0c06dc065d704c561d3f5cff8254.js",
+    "precache-manifest.7ab2e5400f6b3042f6e3fbd0e2ea7c4f.js": "/precache-manifest.7ab2e5400f6b3042f6e3fbd0e2ea7c4f.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.207d5c6a.chunk.css.map": "/static/css/main.207d5c6a.chunk.css.map",
     "static/media/Betwixt.png": "/static/media/Betwixt.7e4ff616.png",
+    "static/media/CirclePortrait.png": "/static/media/CirclePortrait.8055cf32.png",
     "static/media/ColorMatch.png": "/static/media/ColorMatch.58cd0a26.png",
     "static/media/Klima.png": "/static/media/Klima.d141abb3.png",
     "static/media/MathBomb.png": "/static/media/MathBomb.43704578.png",
     "static/media/Mountains.jpg": "/static/media/Mountains.354bc982.jpg",
+    "static/media/NightSky.jpg": "/static/media/NightSky.485e43f1.jpg",
+    "static/media/Portrait.jpg": "/static/media/Portrait.144e5f62.jpg",
     "static/media/Torian_Harris_Resume.docx": "/static/media/Torian_Harris_Resume.dc0220d5.docx",
+    "static/media/Trail.jpg": "/static/media/Trail.5172e83e.jpg",
     "static/media/logo-light-no-title.png": "/static/media/logo-light-no-title.eb09924f.png"
   }
 }
