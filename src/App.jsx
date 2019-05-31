@@ -1,5 +1,4 @@
 import React from 'react';
-import ScrollTest from './Components/ScrollTest'
 import BackDrop from './Components/Backdrop'
 import AppBar from './Components/SimpleAppBar'
 import { createMuiTheme } from '@material-ui/core/styles';
