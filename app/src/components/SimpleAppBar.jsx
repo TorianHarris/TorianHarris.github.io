@@ -10,6 +10,7 @@ import Logo from '../Assets/Branding/logo-light-no-title.png'
 const styles = {
   root: {
     flexGrow: 1,
+    width: "100%",
   },
   grow: {
     flexGrow: 1,

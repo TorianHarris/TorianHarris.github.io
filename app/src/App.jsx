@@ -4,7 +4,10 @@ import BackDrop from './Components/Backdrop'
 import AppBar from './Components/SimpleAppBar'
 import { createMuiTheme } from '@material-ui/core/styles';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-//import orange from '@material-ui/core/colors/orange'
+import NightSky from './Assets/Backgrounds/NightSky.jpg'
+import Mountains from './Assets/Backgrounds/Mountains.jpg'
+import Trail from './Assets/Backgrounds/Trail.jpg'
+
 
 import Projects from './Content/Projects'
 import Contact from './Content/Contact'
@@ -55,10 +58,10 @@ function App() {
     <div>
       <MuiThemeProvider theme={theme}>
         <AppBar />
-        {/* <div style={{backgroundColor: "red", height: 64}}/> */}
-        <BackDrop id={"about"} content={myAbout}/>
-        <BackDrop id={"projects"} content={myProjects}/>
-        <BackDrop id={"contact"} content={myContact}/>
+        <div style={{height: 64}}/>
+        <BackDrop id={"about"} image={NightSky} content={myAbout}/>
+        <BackDrop id={"projects"} image={Mountains} content={myProjects}/>
+        <BackDrop id={"contact"} image={Trail} content={myContact}/>
       </MuiThemeProvider>
     </div>
   );

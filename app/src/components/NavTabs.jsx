@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import {  animateScroll as scroll, scroller } from 'react-scroll'
+import Hidden from '@material-ui/core/Hidden';
+import { animateScroll as scroll, scroller } from 'react-scroll';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
+    //flexGrow: 1,
   },
   flex: {
     display: "flex",
     justifyContent: "flex-end"
+  },
+  positionTab: {
+    ...theme.typography.button,
   }
 });
 
@@ -39,14 +43,14 @@ class SimpleTabs extends React.Component {
 
     for (let i = 0; i < topValues.length; i++) {
       if (i !== topValues.length - 1) {
-        if (scrollY >= topValues[i] - this.offset && scrollY < topValues[i+1] - this.offset) {
-          this.setState({ value: i})
+        if (scrollY >= topValues[i] - this.offset && scrollY < topValues[i + 1] - this.offset) {
+          this.setState({ value: i })
           break;
         }
       }
       else {
         if (scrollY >= topValues[i] - this.offset) {
-          this.setState({ value: i})
+          this.setState({ value: i })
           break;
         }
       }
@@ -65,13 +69,34 @@ class SimpleTabs extends React.Component {
     const { classes } = this.props;
     const { value } = this.state;
 
+    const position = () => {
+      switch (value) {
+        case 0:
+          return "About"
+        case 1:
+          return "Projects"
+        case 2:
+          return "Contact"
+        default:
+          return ""
+      }
+    }
+
     return (
       <div className={classes.root}>
-        <Tabs value={value} className={classes.flex}>
-          <Tab label="About" onClick={() => this.scrollToElement('about')} />
-          <Tab label="Projects" onClick={() => this.scrollToElement('projects')} />
-          <Tab label="Contact" onClick={() => this.scrollToElement('contact')} />
-        </Tabs>
+        <Hidden smDown>
+          <Tabs value={value} className={classes.flex}>
+            <Tab label="About" onClick={() => this.scrollToElement('about')} />
+            <Tab label="Projects" onClick={() => this.scrollToElement('projects')} />
+            <Tab label="Contact" onClick={() => this.scrollToElement('contact')} />
+          </Tabs>
+        </Hidden>
+
+        <Hidden mdUp>
+          <div className={classes.positionTab}>
+            {position()}
+          </div>
+        </Hidden>
       </div>
     );
   }

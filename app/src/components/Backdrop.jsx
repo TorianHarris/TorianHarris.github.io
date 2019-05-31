@@ -7,7 +7,7 @@ import Mountains from '../Assets/Backgrounds/Mountains.jpg'
 import Slider from "./Carousel"
 
 const detectBrowser = () => {
-  if(navigator.userAgent.indexOf("Firefox") != -1)
+  if(navigator.userAgent.indexOf("Firefox") !== -1)
     return "-moz-available";
   else 
     return "-webkit-fill-available";
@@ -19,7 +19,7 @@ const styles = {
     overflow: 'hidden',
   },
   image: {
-    height: detectBrowser(),//"-webkit-fill-available",
+    height: detectBrowser(),
     minWidth: "100%",
     //height: "calc(100% - 64px)",
     marginBottom: -4,
@@ -37,15 +37,16 @@ const styles = {
     display: "flex",
     alignItems: "center",
     width: "100%",
+    height: "100%",
     justifyContent: "center"
   },
 };
 
 function Backdrop(props) {
-  const { classes, id } = props;
+  const { classes, id, image } = props;
   return (
     <Element name={id} className={classes.container + " getClientRect"}>
-      <img src={Mountains} alt="" className={classes.image} />
+      <img src={image} alt="" className={classes.image} />
       <div className={classes.content}>
         {props.content}
       </div>
